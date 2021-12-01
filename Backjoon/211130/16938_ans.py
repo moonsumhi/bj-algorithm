@@ -2,7 +2,6 @@ n, l, r, x = map(int, input().split())
 a = list(map(int, input().split()))
 c = [False] * (n+1)
 def go(index):
-
     if index == n:
         cnt = 0
         tot = 0
@@ -21,11 +20,10 @@ def go(index):
             return 1
         else:
             return 0
-
     c[index] = True
     cnt1 = go(index+1)
     c[index] = False
     cnt2 = go(index+1)
-
-    return cnt1+cnt2
+    return cnt1 + cnt2
 print(go(0))
+

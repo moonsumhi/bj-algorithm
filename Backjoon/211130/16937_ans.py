@@ -1,7 +1,7 @@
 h, w = map(int, input().split())
 n = int(input())
-r = [0]*n
-c = [0]*n
+r = [0] * n
+c = [0] * n
 for i in range(n):
     r[i], c[i] = map(int, input().split())
 

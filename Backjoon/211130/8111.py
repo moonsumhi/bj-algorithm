@@ -12,7 +12,7 @@ for _ in range(t):
     how[1%n] = 1
     while q:
         now = q.popleft()
-        for i in [0,1]:
+        for i in [0, 1]:
             next = (now*10+i)%n
             if dist[next] == -1:
                 dist[next] = dist[now] + 1
