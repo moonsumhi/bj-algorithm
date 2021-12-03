@@ -34,7 +34,7 @@ while q:
         nx = x + dx[k]
         ny = y + dy[k]
         if 0 <= nx < n and 0 <= ny < m:
-            if a[nx][ny] != '#':
+            if a[nx][ny] != "#":
                 ns = s
                 if a[nx][ny] == 'C':
                     if nx == x1 and ny == y1:
@@ -44,8 +44,8 @@ while q:
                 if d[nx][ny][k][ns] == -1:
                     d[nx][ny][k][ns] = d[x][y][direction][s] + 1
                     q.append((nx, ny, k, ns))
-print(ans)
 
+print(ans)
 
 
 

@@ -2,7 +2,7 @@ from collections import deque
 dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]
 def get_sum(x1, y1, x2, y2):
-    return s[x2][y2] - s[x2][y1-1] - s[x1-1][y2] + s[x1-1][y1-1]
+    return s[x2][y2] - s[x1-1][y2] - s[x2][y1-1] + s[x1-1][y1-1]
 
 n, m = map(int, input().split())
 a = [[0]*(m+1) for _ in range(n+1)]
@@ -31,12 +31,3 @@ while q:
                     d[nx][ny] = d[x][y] + 1
 
 print(d[x2][y2])
-
-
-
-# 4 5
-# 0 0 0 0 0
-# 0 0 1 0 0
-# 0 0 0 0 0
-# 0 0 0 0 0
-# 2 2 1 1 1 4

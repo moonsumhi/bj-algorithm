@@ -1,4 +1,5 @@
 from collections import deque
+
 dist = [[-1]*2 for _ in range(500001)]
 n, k = map(int, input().split())
 q = deque()
@@ -11,6 +12,7 @@ while q:
             if dist[y][1-t] == -1:
                 dist[y][1-t] = dist[x][t] + 1
                 q.append((y, 1-t))
+
 ans = -1
 t = 0
 while True:
@@ -21,4 +23,5 @@ while True:
         ans = t
         break
     t += 1
+
 print(ans)
