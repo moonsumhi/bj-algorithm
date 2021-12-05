@@ -1,5 +1,5 @@
-n, k = map(int, input().split())
 d = [[[[False]*436 for k in range(31)] for j in range(31)] for i in range(31)]
+n, k = map(int, input().split())
 ans = ''
 def go(i, a, b, p):
     if i == n:
@@ -9,8 +9,9 @@ def go(i, a, b, p):
             return False
     if d[i][a][b][p]:
         return False
+    d[i][a][b][p] = True
     global ans
-    temp = ans 
+    temp = ans
     ans = temp + 'A'
     if go(i+1, a+1, b, p):
         return True
