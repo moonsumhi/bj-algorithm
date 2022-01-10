@@ -1,25 +1,21 @@
 n, m = map(int, input().split())
-names = [int(input()) for _ in range(n)]
-d = [[-1]*(1002) for _ in range(1001)]
+names = [int(input()) for i in range(n)]
+d = [[-1]*1001 for _ in range(n+1)]
 
-
-def go(idx, cnt):
-    if idx == n:
+def go(i, cnt):
+    if i == n:
         return 0
-    print(idx, cnt)
-    if d[idx][cnt] != -1:
-        return d[idx][cnt]
-    space = m - cnt + 1
-    ans = go(idx+1, names[idx]+1) + space**2
-    if cnt + names[idx] <= m:
-        cur = go(idx+1, cnt+names[idx]+1)
-        if cur < ans:
-            ans = cur
-    d[idx][cnt] = ans
+    if d[i][cnt] != -1:
+        return d[i][cnt]
+    space = m-cnt+1
+    ans = go(i+1, names[i]+1) + space**2
+    if cnt+names[i] <= m:
+        ans = min(ans, go(i+1, cnt+names[i]+1))
+    d[i][cnt] = ans
+
     return ans
 
-print(go(0, 0))
-
+print(go(1, names[0]+1))
 
 # 11 20
 # 7

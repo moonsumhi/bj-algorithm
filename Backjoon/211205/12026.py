@@ -1,28 +1,30 @@
 n = int(input())
-block = input()
+s = input()
 d = [-1]*n
 d[0] = 0
 
-def get_prev(i):
-    if block[i] == 'J':
+def get_next(x):
+    if s[x] == 'B':
         return 'O'
-    if block[i] == 'O':
-        return 'B'
-    if block[i] == 'B':
+    elif s[x] == 'O':
         return 'J'
+    else:
+        return 'B'
+
 
 for i in range(n):
-    now = block[i]
-    prev = get_prev(i)
-    for k in range(0, i):
-        if d[k] == -1:
+    now = s[i]
+    nxt = get_next(i)
+    for j in range(i, n):
+        if d[i] == -1:
             continue
-        if prev != block[k]:
+        if s[j] != nxt:
             continue
-        if d[i] == -1 or d[i] > d[k]+(i-k)**2:
-            d[i] = d[k]+(i-k)**2
+        cost = (j-i)**2
+        if d[j] == -1 or d[j] > d[i] + cost:
+            d[j] = d[i] + cost
 
-print(d)
+print(d[n-1])
 
 
 
